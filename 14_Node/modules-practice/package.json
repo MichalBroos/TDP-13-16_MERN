@@ -1,0 +1,14 @@
+{
+  "name": "modules-practice",
+  "version": "1.0.0",
+  "description": "QA-Node-Modules exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michal Broos",
+  "license": "ISC",
+  "dependencies": {
+    "cowsay": "^1.5.0"
+  }
+}
