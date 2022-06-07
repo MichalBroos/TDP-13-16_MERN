@@ -31,18 +31,20 @@ app.get("/getById/:id", (req, res) => {
 });
 
 // 8.
-// Postman needed because doing as DELETE, not GET
+// Postman needed because doing as DELETE, not GET - http://localhost:3000/delete/4
 app.delete("/delete/:id", (req, res) => {
     const id = req.params.id;
     if (id >= 0 && id < names.length) {
         const deleted = names.splice(id, 1);
         res.send(`Deleted ${deleted} at id ${id}; remaining ${names}`);
     } else {
-        res.status(204).send("Nothing deleted, No content sent");
+        console.log("Nothing deleted, No content sent");
+        res.status(204).send("204 No content = not shown in response");
     }
 });
 
 // 9.
+// Postman - http://localhost:3000/create + {"name": "newName2", "anotherField":  "random"} in request body
 app.post("/create", (req, res) => {
     console.log(`POST to create ${JSON.stringify(req.body)}`); // stringify required in ``
     console.log("POST to create", req.body);
@@ -50,6 +52,20 @@ app.post("/create", (req, res) => {
     names.push(created);
     // 201 Created typical after POST
     res.status(201).send(`Created ${created} with id ${names.length-1}; names now ${names}`);
+});
+
+// 10. Postman - http://localhost:3000/replace/0/?name=queryParameterName
+app.put("/replace/:id", (req, res) => {
+    const id = req.params.id;
+    console.log(`Full query ${JSON.stringify(req.query)}`);
+    if (id >= 0 && id < names.length) {
+        const replaced = names[id];
+        names[id] = req.query.name;
+        res.send(`Replaced ${replaced} with ${names[id]} at id ${id}; names now ${names}`);
+    } else {
+        console.log("Nothing replaced, No content sent");
+        res.status(204).send("204 No content = not shown in response");
+    }
 });
 
 const server = app.listen(3000, () => {
