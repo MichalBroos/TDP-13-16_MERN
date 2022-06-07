@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 // 5. + 6.
 let names = [];
 for (let i = 1; i < 6; i++) {
-    names.push(`Name${i}`);
+    names.push(`NameNodemon${i}`);
 }
 app.get("/getAll", (req, res) => {
     res.send(names);
