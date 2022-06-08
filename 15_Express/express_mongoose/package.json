@@ -1,0 +1,17 @@
+{
+  "name": "express_mongoose",
+  "version": "1.0.0",
+  "description": "QA-Express-Mongoose exercise",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michal Broos",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.18.1",
+    "mongoose": "^6.3.6"
+  }
+}
