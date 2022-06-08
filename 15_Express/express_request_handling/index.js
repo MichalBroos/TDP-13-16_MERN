@@ -20,7 +20,7 @@ app.use((req, res, next) => {
     // return example
     return next();
     console.log("Another middleware unreachable code");
-})
+});
 
 // 4.
 app.get("/", (req, res) => {
