@@ -40,15 +40,26 @@ let doggoCompetition = (place) => {
     }
 
     // console.log(places.join(", "));
-    for (let i = 0; i < places.length; i++) {
-        if (String(i).slice(-1) !== "9") {
-            process.stdout.write(places[i] + ", ");
-        } else {
-            console.log(places[i]);
+    let prettyPrintResults = () => {
+        for (let i = 0; i < places.length; i++) {
+            if (i === places.length - 1) {
+                // last element
+                console.log(places[i]);
+            } else if (String(i).slice(-1) !== "9") {
+                // inner elements
+                process.stdout.write(places[i] + ", ");
+            } else {
+                // end of line but not last element
+                process.stdout.write(places[i] + ",\n");
+            }
         }
     }
+
+    prettyPrintResults();
+    // console.log(places);
+    return places;
 }
-doggoCompetition(0);
+doggoCompetition(80);
 
 module.exports = {
     isFactorial,
