@@ -25,27 +25,32 @@ const testInts = [120, 150, 3628800, 479001600, 6, 18];
 
 // Task 2
 let doggoCompetition = (place) => {
-    // let places = [...Array(100).keys()]
-    // places.splice(--place, 1);
-    // console.log(places);
-
+    let places = [];
+    const specialPlaces = [11, 12, 13];
+    const specialEndings = {1: "st", 2: "nd", 3:"rd"};//[1, 2, 3]
     for (let i = 1; i < 101; i++) {
-        switch (i) {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 100:
-                break;
-            default:
-                //
+        if (i !== place) {
+            const specialEnding = String(i).slice(-1);
+            if (!specialPlaces.includes(i) && specialEndings[specialEnding]) {
+                places.push(i + specialEndings[specialEnding]);
+            } else {
+                places.push(i + "th");
+            }
+        }
+    }
+
+    // console.log(places.join(", "));
+    for (let i = 0; i < places.length; i++) {
+        if (String(i).slice(-1) !== "9") {
+            process.stdout.write(places[i] + ", ");
+        } else {
+            console.log(places[i]);
         }
     }
 }
-doggoCompetition(1);
+doggoCompetition(0);
 
 module.exports = {
-    isFactorial
+    isFactorial,
+    doggoCompetition
 }
