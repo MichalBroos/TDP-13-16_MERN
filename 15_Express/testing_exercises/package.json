@@ -1,0 +1,16 @@
+{
+  "name": "testing_exercises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "tasks.js",
+  "scripts": {
+    "start": "nodemon tasks.js",
+    "test": "mocha tests/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "mocha": "^10.0.0"
+  }
+}
