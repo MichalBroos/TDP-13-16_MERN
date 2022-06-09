@@ -59,7 +59,7 @@ let doggoCompetition = (place) => {
     // console.log(places);
     return places;
 }
-doggoCompetition(80);
+// doggoCompetition(80);
 
 module.exports = {
     isFactorial,

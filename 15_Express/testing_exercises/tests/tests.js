@@ -24,3 +24,27 @@ mocha.describe("Test factorial", () => {
         chai.expect("18 NONE").to.equal(tasks.isFactorial(18));
     });
 });
+
+mocha.describe("Test doggo competition", () => {
+    mocha.it(`length should be 99`, () => {
+        chai.expect(99).to.equal(tasks.doggoCompetition(50).length);
+    });
+    
+    mocha.it(`removing 5th shifts 6th left`, () => {
+        chai.expect("6th").to.equal(tasks.doggoCompetition(5)[5-1]);
+    });
+
+    let place = 80;
+    let nextPlaceString = String(place+1, 10);
+    // let placesRemoved = tasks.doggoCompetition(place);
+    mocha.it(`reusable shift left with 80 as example`, () => {
+        chai.expect(nextPlaceString)
+            .to.equal(tasks.doggoCompetition(place)[place-1].substring(0, nextPlaceString.length));
+    });
+});
+
+/*
+extensions:
+include rng + loop for indices in doggo element testing
+test prettyPrintResults
+*/
