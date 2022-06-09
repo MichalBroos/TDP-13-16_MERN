@@ -5,23 +5,51 @@ const chai = require("chai");
 const tasks = require("../tasks.js");
 
 mocha.describe("Test factorial", () => {
-    mocha.it("120 should equal to 5!", () => {
-        chai.expect("120 = 5!").to.equal(tasks.isFactorial(120));
+    // Efficient version
+    const NONE = "NONE";
+    let testValues = {120: "5!", 150: NONE, 3628800: "10!", 479001600: "12!", 6: "3!", 18: NONE};
+
+    for (let key in testValues) {
+        const result = testValues[key];
+        mocha.it(`${key} should equal to ${result}`, () => {
+            chai.expect(`${key}${result !== NONE ? " = " : " "}${result}`)
+                .to.equal(tasks.isFactorial(parseInt(key, 10)));
+        });
+    }
+
+    // Repetitive version
+    const testValue1 = 120;
+    const result1 = "5!";
+    mocha.it(`${testValue1} should equal to ${result1}`, () => {
+        chai.expect(`${testValue1} = 5!`).to.equal(tasks.isFactorial(testValue1));
     });
-    mocha.it("150 should equal to NONE", () => {
-        chai.expect("150 NONE").to.equal(tasks.isFactorial(150));
+
+    const testValue2 = 150;
+    mocha.it(`${testValue2} should equal to ${NONE}`, () => {
+        chai.expect(`${testValue2} ${NONE}`).to.equal(tasks.isFactorial(testValue2));
     });
-    mocha.it("3628800 should equal to 10!", () => {
-        chai.expect("3628800 = 10!").to.equal(tasks.isFactorial(3628800));
+
+    const testValue3 = 3628800;
+    const result3 = "10!";
+    mocha.it(`${testValue3} should equal to 10!`, () => {
+        chai.expect(`${testValue3} = 10!`).to.equal(tasks.isFactorial(testValue3));
     });
-    mocha.it("479001600 should equal to 12!", () => {
-        chai.expect("479001600 = 12!").to.equal(tasks.isFactorial(479001600));
+
+    const testValue4 = 479001600;
+    const result4 = "12!";
+    mocha.it(`${testValue4} should equal to 12!`, () => {
+        chai.expect(`${testValue4} = 12!`).to.equal(tasks.isFactorial(testValue4));
     });
-    mocha.it("6 should equal to 3!", () => {
-        chai.expect("6 = 3!").to.equal(tasks.isFactorial(6));
+
+    const testValue5 = 6;
+    const result5 = "3!";
+    mocha.it(`${testValue5} should equal to 3!`, () => {
+        chai.expect(`${testValue5} = 3!`).to.equal(tasks.isFactorial(testValue5));
     });
-    mocha.it("18 should equal to NONE", () => {
-        chai.expect("18 NONE").to.equal(tasks.isFactorial(18));
+
+    const testValue6 = 18;
+    mocha.it(`${testValue6} should equal to ${NONE}`, () => {
+        chai.expect(`${testValue6} ${NONE}`).to.equal(tasks.isFactorial(testValue6));
     });
 });
 
