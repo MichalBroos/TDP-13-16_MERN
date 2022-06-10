@@ -63,15 +63,42 @@ mocha.describe("Test doggo competition", () => {
         chai.expect("6th").to.equal(tasks.doggoCompetition(5)[5-1]);
     });
 
-    // Reusable + tests 5 random places in <1,100>
+    // Reusable + tests 5 random places in <1,99>
     for (let i = 0; i < 5; i++) {
-        const place = getRandomIntInclusive(1, 100);
-        const nextPlaceString = String(place+1);
+        // test doesn't make sense for 100 as there is nothing to shift left, thus max=99
+        const place = getRandomIntInclusive(1, 99);
+        const placeIndex = place - 1;
+        const nextPlaceString = String(place + 1);
         mocha.it(`removing ${place} shifts ${nextPlaceString} left`, () => {
             chai.expect(nextPlaceString)
-                .to.equal(tasks.doggoCompetition(place)[place-1].substring(0, nextPlaceString.length));
+                .to.equal(tasks.doggoCompetition(place)[placeIndex].substring(0, nextPlaceString.length));
         });
     }
+
+    for (let i = 0; i < 5; i++) {
+        // test doesn't make sense for 1 as there is no previous place, thus min=2
+        const place = getRandomIntInclusive(2, 100);
+        const prevPlaceIndex = place - 2;
+        const prevPlaceString = String(place - 1);
+        mocha.it(`removing ${place} leaves ${prevPlaceString} unchanged`, () => {
+            chai.expect(prevPlaceString)
+                .to.equal(tasks.doggoCompetition(place)[prevPlaceIndex].substring(0, prevPlaceString.length));
+        });
+    }
+
+    const last = 100;
+    const penultimate = last - 1;
+    mocha.it(`removing ${last} makes ${penultimate} last element`, () => {
+        chai.expect(`${penultimate}`)
+            .to.equal(tasks.doggoCompetition(last).slice(-1)[0].substring(0, String(penultimate).length));
+    });
+
+    const first = 1;
+    const second = first + 1;
+    mocha.it(`removing ${first} makes ${second} first element`, () => {
+        chai.expect(`${second}`)
+            .to.equal(tasks.doggoCompetition(first)[0].substring(0, String(second).length));
+    });
 });
 
 function getRandomIntInclusive(min, max) {
