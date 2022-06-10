@@ -58,21 +58,31 @@ mocha.describe("Test doggo competition", () => {
         chai.expect(99).to.equal(tasks.doggoCompetition(50).length);
     });
     
+    // Hardcoded
     mocha.it(`removing 5th shifts 6th left`, () => {
         chai.expect("6th").to.equal(tasks.doggoCompetition(5)[5-1]);
     });
 
-    let place = 80;
-    let nextPlaceString = String(place+1);
-    // let placesRemoved = tasks.doggoCompetition(place);
-    mocha.it(`reusable shift left with ${place} as example`, () => {
-        chai.expect(nextPlaceString)
-            .to.equal(tasks.doggoCompetition(place)[place-1].substring(0, nextPlaceString.length));
-    });
+    // Reusable + tests 5 random places in <1,100>
+    for (let i = 0; i < 5; i++) {
+        const place = getRandomIntInclusive(1, 100);
+        const nextPlaceString = String(place+1);
+        mocha.it(`removing ${place} shifts ${nextPlaceString} left`, () => {
+            chai.expect(nextPlaceString)
+                .to.equal(tasks.doggoCompetition(place)[place-1].substring(0, nextPlaceString.length));
+        });
+    }
 });
+
+function getRandomIntInclusive(min, max) {
+    // both max and min inclusive
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 /*
 extensions:
-include rng + loop for indices in doggo element testing
+DONE - include rng + loop for indices in doggo element testing
 test prettyPrintResults
 */
