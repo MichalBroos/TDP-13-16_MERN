@@ -45,7 +45,7 @@ let doggoCompetition = (place) => {
             if (i === places.length - 1) {
                 // last element
                 console.log(places[i]);
-            } else if (String(i).slice(-1) !== "9") {
+            } else if ((i + 1) % 10) { // equivalent to (String(i).slice(-1) !== "9")
                 // inner elements
                 process.stdout.write(places[i] + ", ");
             } else {
