@@ -63,9 +63,9 @@ mocha.describe("Test doggo competition", () => {
     });
 
     let place = 80;
-    let nextPlaceString = String(place+1, 10);
+    let nextPlaceString = String(place+1);
     // let placesRemoved = tasks.doggoCompetition(place);
-    mocha.it(`reusable shift left with 80 as example`, () => {
+    mocha.it(`reusable shift left with ${place} as example`, () => {
         chai.expect(nextPlaceString)
             .to.equal(tasks.doggoCompetition(place)[place-1].substring(0, nextPlaceString.length));
     });

@@ -27,7 +27,7 @@ const testInts = [120, 150, 3628800, 479001600, 6, 18];
 let doggoCompetition = (place) => {
     let places = [];
     const specialPlaces = [11, 12, 13];
-    const specialEndings = {1: "st", 2: "nd", 3:"rd"};//[1, 2, 3]
+    const specialEndings = {1: "st", 2: "nd", 3:"rd"};
     for (let i = 1; i < 101; i++) {
         if (i !== place) {
             const specialEnding = String(i).slice(-1);
