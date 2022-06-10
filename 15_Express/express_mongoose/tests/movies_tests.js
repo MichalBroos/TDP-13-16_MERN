@@ -67,4 +67,20 @@ mocha.describe("Movies CRUD testing", () => {
             done();
         });
     });
+
+    mocha.it("should replace the first movie", (done) => {
+        const replacement = {
+            title: "replacementMovie",
+            releaseDate: "2015, 11, 17",
+            earnings: "333333",
+            actors: ["r1", "r2"]
+        };
+        chai.request(server).put(`/movies/replace/${id}`).send(replacement).end((err, res) => {
+            chai.expect(err).to.be.null;
+            chai.expect(res.status).to.equal(202);
+            // console.log(res.body);
+            chai.expect(res.body.title).to.equal("title0");
+            done();
+        });
+    });
 });
