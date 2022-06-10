@@ -50,4 +50,21 @@ mocha.describe("Movies CRUD testing", () => {
             done();
         });
     });
+
+    mocha.it("should create a movie", (done) => {
+        const newMovie = {
+            title: "newMovie",
+            releaseDate: "2005, 11, 17",
+            earnings: "666666",
+            actors: ["z1", "z2"]
+        };
+        // send = request body
+        chai.request(server).post("/movies/create").send(newMovie).end((err, res) => {
+            chai.expect(err).to.be.null;
+            chai.expect(res.status).to.equal(201);
+            // console.log(res.text);
+            chai.expect(res.text).to.include(`Created ${newMovie.title} with id `);
+            done();
+        });
+    });
 });
