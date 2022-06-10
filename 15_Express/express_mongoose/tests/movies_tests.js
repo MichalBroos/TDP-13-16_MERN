@@ -83,4 +83,13 @@ mocha.describe("Movies CRUD testing", () => {
             done();
         });
     });
+
+    mocha.it("should delete the first movie", (done) => {
+        chai.request(server).delete(`/movies/delete/${id}`).end((err, res) => {
+            chai.expect(err).to.be.null;
+            chai.expect(res.status).to.equal(204);
+            chai.expect(Object.keys(res.body).length).to.equal(0);
+            done();
+        });
+    });
 });
