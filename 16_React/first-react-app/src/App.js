@@ -1,6 +1,8 @@
 // import logo from './logo.svg';
 import './App.css';
 import Header from './Header';
+import Footer from './Footer';
+import React from 'react';
 
 function App() {
   return (
@@ -21,9 +23,16 @@ function App() {
     //   </header>
     // </div>
 
-    <div>
+    // nesting is okay because only 1 parent is returned (div)
+    // <div>
+    //   <Header/>
+    //   <Footer/>
+    // </div>
+    // Fragment required because cannot return multiple (as in Footer.js)
+    <React.Fragment>
       <Header/>
-    </div>
+      <Footer/>
+    </React.Fragment>
   );
 }
 
