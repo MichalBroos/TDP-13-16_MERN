@@ -2,7 +2,6 @@
 import './App.css';
 import Header from './Header';
 import Footer from './Footer';
-import React from 'react';
 
 function App() {
   return (
@@ -29,10 +28,10 @@ function App() {
     //   <Footer/>
     // </div>
     // Fragment required because cannot return multiple (as in Footer.js)
-    <React.Fragment>
+    <>
       <Header/>
       <Footer/>
-    </React.Fragment>
+    </>
   );
 }
 
