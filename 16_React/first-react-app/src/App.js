@@ -2,7 +2,8 @@
 import './App.css';
 // import Header from './Header';
 // import Footer from './Footer';
-import ComponentWithProps from './ComponentWithProps';
+// import ComponentWithProps from './ComponentWithProps';
+import SaveCustomer from './SaveCustomer';
 
 function App() {
   return (
@@ -37,16 +38,18 @@ function App() {
     // </>
 
     // D2
-    <>
-      <ComponentWithProps header="okay1" content="content1" number={1}/>
-      {/* error because content uses PropTypes isRequired */}
-      <ComponentWithProps header="error1" number={1}/>
-      {/* okay, number not required */}
-      <ComponentWithProps header="okay2" content="content2"/>
-      {/* invalid prop type error */}
-      <ComponentWithProps header="error2" content="content2" number="invalid type"/>
-      <ComponentWithProps content="okay3" number={3}/>
-    </>
+    // <>
+    //   <ComponentWithProps header="okay1" content="content1" number={1}/>
+    //   {/* error because content uses PropTypes isRequired */}
+    //   <ComponentWithProps header="error1" number={1}/>
+    //   {/* okay, number not required */}
+    //   <ComponentWithProps header="okay2" content="content2"/>
+    //   {/* invalid prop type error */}
+    //   <ComponentWithProps header="error2" content="content2" number="invalid type"/>
+    //   <ComponentWithProps content="okay3" number={3}/>
+    // </>
+
+    <SaveCustomer/>
   );
 }
 
