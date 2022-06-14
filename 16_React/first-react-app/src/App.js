@@ -3,7 +3,8 @@ import './App.css';
 // import Header from './Header';
 // import Footer from './Footer';
 // import ComponentWithProps from './ComponentWithProps';
-import SaveCustomer from './SaveCustomer';
+// import SaveCustomer from './SaveCustomer';
+import Car from './Car';
 
 function App() {
   return (
@@ -49,7 +50,9 @@ function App() {
     //   <ComponentWithProps content="okay3" number={3}/>
     // </>
 
-    <SaveCustomer/>
+    // <SaveCustomer/>
+
+    <Car/>
   );
 }
 
