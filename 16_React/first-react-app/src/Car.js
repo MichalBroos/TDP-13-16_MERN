@@ -20,25 +20,25 @@ const Car = () => {
             <label htmlFor="brand">Brand: </label>
             <input
                 type="text" name="brand"
-                value={!brand ? "" : brand} onChange={(e) => setBrand(e.target.value)}
+                value={brand} onChange={(e) => setBrand(e.target.value)}
             />
             <br/>
             <label htmlFor="model">Model: </label>
             <input
                 type="text" name="model"
-                value={!model ? "" : model} onChange={(e) => setModel(e.target.value)}
+                value={model} onChange={(e) => setModel(e.target.value)}
             />
             <br/>
             <label htmlFor="colour">Colour: </label>
             <input
                 type="text" name="colour"
-                value={!colour ? "" : colour} onChange={(e) => setColour(e.target.value)}
+                value={colour} onChange={(e) => setColour(e.target.value)}
             />
             <br/>
             <label htmlFor="year">Year: </label>
             <input
                 type="text" name="year"
-                value={!year ? "" : year} onChange={(e) => setYear(e.target.value)}
+                value={year} onChange={(e) => setYear(e.target.value)}
             />
         </>
     );
