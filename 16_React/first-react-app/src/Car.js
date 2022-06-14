@@ -6,60 +6,39 @@ const Car = () => {
     const [colour, setColour] = useState("red");
     const [year, setYear] = useState("1999");
 
-    const updateDetails = (e) => {
-        let value = e.target.value;
-        if (!value) {
-            value = "N/A";
-        }
-        switch (e.target.name) {
-            case "brand":
-                setBrand(value);
-                break;
-            case "model":
-                setModel(value)
-                break;
-            case "colour":
-                setColour(value)
-                break;
-            case "year":
-                setYear(value)
-                break;
-            default:
-                console.log("switch error");
-        }
-    }
+    const noValue = "N/A";
 
     return (
         <>
             <h1>Car details</h1>
-            <p>Brand: {brand}</p>
-            <p>Model: {model}</p>
-            <p>Colour: {colour}</p>
-            <p>Year: {year}</p>
+            <p>Brand: {!brand ? noValue : brand}</p>
+            <p>Model: {!model ? noValue : model}</p>
+            <p>Colour: {!colour ? noValue : colour}</p>
+            <p>Year: {!year ? noValue : year}</p>
 
             <h2>Change details w/o submitting</h2>
             <label htmlFor="brand">Brand: </label>
             <input
                 type="text" name="brand"
-                value={brand === "N/A" ? "" : brand} onChange={updateDetails}
+                value={!brand ? "" : brand} onChange={(e) => setBrand(e.target.value)}
             />
             <br/>
             <label htmlFor="model">Model: </label>
             <input
                 type="text" name="model"
-                value={model === "N/A" ? "" : model} onChange={updateDetails}
+                value={!model ? "" : model} onChange={(e) => setModel(e.target.value)}
             />
             <br/>
             <label htmlFor="colour">Colour: </label>
             <input
                 type="text" name="colour"
-                value={colour === "N/A" ? "" : colour} onChange={updateDetails}
+                value={!colour ? "" : colour} onChange={(e) => setColour(e.target.value)}
             />
             <br/>
             <label htmlFor="year">Year: </label>
             <input
                 type="text" name="year"
-                value={year === "N/A" ? "" : year} onChange={updateDetails}
+                value={!year ? "" : year} onChange={(e) => setYear(e.target.value)}
             />
         </>
     );
