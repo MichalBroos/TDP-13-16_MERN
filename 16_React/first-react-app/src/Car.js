@@ -6,6 +6,29 @@ const Car = () => {
     const [colour, setColour] = useState("red");
     const [year, setYear] = useState("1999");
 
+    const updateDetails = (e) => {
+        let value = e.target.value;
+        if (!value) {
+            value = "N/A";
+        }
+        switch (e.target.name) {
+            case "brand":
+                setBrand(value);
+                break;
+            case "model":
+                setModel(value)
+                break;
+            case "colour":
+                setColour(value)
+                break;
+            case "year":
+                setYear(value)
+                break;
+            default:
+                console.log("switch error");
+        }
+    }
+
     return (
         <>
             <h1>Car details</h1>
@@ -18,25 +41,25 @@ const Car = () => {
             <label htmlFor="brand">Brand: </label>
             <input
                 type="text" name="brand"
-                value={brand} onChange={(e) => setBrand(e.target.value)}
+                value={brand === "N/A" ? "" : brand} onChange={updateDetails}
             />
             <br/>
             <label htmlFor="model">Model: </label>
             <input
                 type="text" name="model"
-                value={model} onChange={(e) => setModel(e.target.value)}
+                value={model === "N/A" ? "" : model} onChange={updateDetails}
             />
             <br/>
             <label htmlFor="colour">Colour: </label>
             <input
                 type="text" name="colour"
-                value={colour} onChange={(e) => setColour(e.target.value)}
+                value={colour === "N/A" ? "" : colour} onChange={updateDetails}
             />
             <br/>
             <label htmlFor="year">Year: </label>
             <input
                 type="text" name="year"
-                value={year} onChange={(e) => setYear(e.target.value)}
+                value={year === "N/A" ? "" : year} onChange={updateDetails}
             />
         </>
     );
