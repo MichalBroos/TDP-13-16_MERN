@@ -4,7 +4,7 @@ import './App.css';
 // import Footer from './Footer';
 // import ComponentWithProps from './ComponentWithProps';
 // import SaveCustomer from './SaveCustomer';
-import Car from './Car';
+// import Car from './Car';
 import ProductTable from './ProductTable';
 
 function App() {
@@ -56,7 +56,7 @@ function App() {
     // <Car/>
 
     <ProductTable products={JSON.stringify(
-      [{id: 1, name: "prod1"}, {id: 2, name: "prod2"}]
+      [{id: 1, name: "prod1"}, {id: 2, name: "prod2"}, {id: 3, name: "differentProd3"}, {id: 4, name: "prod3dorp"}]
     )}/>
   );
 }

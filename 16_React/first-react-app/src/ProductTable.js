@@ -2,19 +2,22 @@ import {useState} from 'react';
 
 const ProductTable = ({products}) => {
     const json = JSON.parse(products);
-    console.log(json, typeof json);
 
-    // const list = [];
-    // j.forEach(element => {
-    //     list.push(<p key={element.prodId}>{element.prodId}</p>)
-    // });
+    const [search, setSearch] = useState("");
+    const productMapper = productsJson => productsJson.map(product => <p key={product.id}>{product.name}</p>);
+
     return (
         <>
             <h1>Product search</h1>
             <input
                 type="text" name="search"
+                value={search} onChange={e => setSearch(e.target.value)}
             />
-            {json.map(prod => <p>{`id: ${prod.id} name: ${prod.name}`}</p>)}
+            {!search ?
+                productMapper(json)
+                :
+                productMapper(json.filter(product => product.name.toLowerCase().includes(search.toLowerCase())))
+            }
         </>
     );
 }
