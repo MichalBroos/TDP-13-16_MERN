@@ -16,4 +16,10 @@ console.log("Odd removed:", numbers.filter(num => !(num % 2)));
 // remove the even numbers
 console.log("Even removed:", numbers.filter(num => num % 2));
 
+// find the sum of the list
+console.log("Sum:", numbers.reduce((acc, next) => acc + next));
 
+// square every number in the list, then remove the even numbers, then find the min value
+console.log("Chain result:", numbers.map(num => Math.pow(num, 2))
+                             .filter(num => num % 2)
+                             .reduce((acc, next) => acc < next ? acc : next));
