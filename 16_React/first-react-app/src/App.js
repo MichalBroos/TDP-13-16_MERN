@@ -6,7 +6,8 @@ import './App.css';
 // import SaveCustomer from './SaveCustomer';
 // import Car from './Car';
 // import ProductTable from './ProductTable';
-import LoginControl from './LoginControl';
+// import LoginControl from './LoginControl';
+import Subcontent from './Subcontent';
 
 function App() {
   return (
@@ -61,7 +62,8 @@ function App() {
     // )}/>
 
     // D3
-    <LoginControl/>
+    // <LoginControl/>
+    <Subcontent/>
   );
 }
 
