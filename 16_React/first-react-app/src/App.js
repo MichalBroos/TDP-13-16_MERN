@@ -7,7 +7,8 @@ import './App.css';
 // import Car from './Car';
 // import ProductTable from './ProductTable';
 // import LoginControl from './LoginControl';
-import Subcontent from './Subcontent';
+// import Subcontent from './Subcontent';
+import EmployeeInfo from './EmployeeInfo';
 
 function App() {
   return (
@@ -63,7 +64,10 @@ function App() {
 
     // D3
     // <LoginControl/>
-    <Subcontent/>
+    // <Subcontent/>
+
+    // D4
+    <EmployeeInfo/>
   );
 }
 
