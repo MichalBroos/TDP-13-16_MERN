@@ -8,7 +8,8 @@ import './App.css';
 // import ProductTable from './ProductTable';
 // import LoginControl from './LoginControl';
 // import Subcontent from './Subcontent';
-import EmployeeInfo from './EmployeeInfo';
+// import EmployeeInfo from './EmployeeInfo';
+import FilmRequest from './FilmRequest';
 
 function App() {
   return (
@@ -67,7 +68,8 @@ function App() {
     // <Subcontent/>
 
     // D4
-    <EmployeeInfo/>
+    // <EmployeeInfo/>
+    <FilmRequest/>
   );
 }
 
