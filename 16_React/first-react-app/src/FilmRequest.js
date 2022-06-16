@@ -33,6 +33,7 @@ const FilmRequest = () => {
             <input
                 type="text" name="search"
                 value={search} onChange={e => setSearch(e.target.value)}
+                onKeyPress={e => e.key === "Enter" && searchFilm()}
             />
             <button onClick={searchFilm}>Search</button>
         </>
