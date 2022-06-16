@@ -39,28 +39,15 @@ const FilmRequest = () => {
         </>
     );
 
-    if (error) {
-        return (
-            <>
-                {topElements}
-                <div>Error: {error.message}</div>
-            </>
-        );
-    } else if (!loaded) {
-        return (
-            <>
-                {topElements}
-                {film ? <p>Loading...</p> : <p>No results yet...</p>}
-            </>
-        );
-    } else {
-        return (
-            <>
-                {topElements}
-                <Film key={film.imdbID} name={film.Title} actors={film.Actors} release={film.Released}/>
-            </>
-        );
-    }
+    return (
+        <>
+            {topElements}
+            {error ? <div>Error: {error.message}</div>
+                    : (!loaded ? (film ? <p>Loading...</p> : <p>No results yet...</p>)
+                                : <Film key={film.imdbID} name={film.Title}
+                                        actors={film.Actors} release={film.Released}/>)}
+        </>
+    );
 }
 
 export default FilmRequest;
