@@ -5,20 +5,21 @@ import Film from './Film.js';
 const FilmRequest = () => {
     const [error, setError] = useState(null);
     const [loaded, setLoaded] = useState(false);
-    const [film, setFilm] = useState();
+    const [films, setFilms] = useState();
     const [search, setSearch] = useState("");
+    const [started, setStarted] = useState(false);
 
     const searchFilm = () => {
+        if (!started) setStarted(true);
         // reset required to show Loading... before result is shown
         setLoaded(false);
-        // no need to reset film because want to show No results yet... only on the first load
-        // after 1st search, {film} is truthy so Loading... shows between searches = intended
 
-        axios.get(`http://www.omdbapi.com/?apikey=[secret]&t=${search}`)
+        axios.get(`http://www.omdbapi.com/?apikey=[secret]&s=${search}`)
             .then(res => {
                 setLoaded(true);
-                setFilm(res.data);
-                console.log(res);
+                setFilms(res.data.Search);
+                console.log("res:", res);
+                console.log("films:", res.data.Search);
             },
                 err => {
                     setLoaded(true);
@@ -43,11 +44,14 @@ const FilmRequest = () => {
         <>
             {topElements}
             {error ? <div>Error: {error.message}</div>
-                    : (!loaded ? (film ? <p>Loading...</p> : <p>No results yet...</p>)
-                                : <Film key={film.imdbID} name={film.Title}
-                                        actors={film.Actors} release={film.Released}/>)}
+                   : (!loaded ? (started ? <p>Loading...</p> : <p>Start your search...</p>)
+                              : !films ? <p>No films found</p>
+                                       : films.map(({imdbID, Title, Year}) => (
+                                            <Film key={imdbID} name={Title} release={Year} id={imdbID}/>)))}
         </>
     );
 }
 
 export default FilmRequest;
+
+// extension "showing x out of y results"
