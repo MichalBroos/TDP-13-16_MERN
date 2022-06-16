@@ -11,6 +11,8 @@ const FilmRequest = () => {
     const searchFilm = () => {
         // reset required to show Loading... before result is shown
         setLoaded(false);
+        // no need to reset film because want to show No results yet... only on the first load
+        // after 1st search, {film} is truthy so Loading... shows between searches = intended
 
         axios.get(`http://www.omdbapi.com/?apikey=[secret]&t=${search}`)
             .then(res => {
