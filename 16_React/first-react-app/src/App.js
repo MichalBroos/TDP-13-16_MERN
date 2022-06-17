@@ -9,7 +9,8 @@ import './App.css';
 // import LoginControl from './LoginControl';
 // import Subcontent from './Subcontent';
 // import EmployeeInfo from './EmployeeInfo';
-import FilmRequest from './FilmRequest';
+// import FilmRequest from './FilmRequest';
+import Movies from './Movies';
 
 function App() {
   return (
@@ -69,7 +70,10 @@ function App() {
 
     // D4
     // <EmployeeInfo/>
-    <FilmRequest/>
+    // <FilmRequest/>
+
+    // D5
+    <Movies/>
   );
 }
 

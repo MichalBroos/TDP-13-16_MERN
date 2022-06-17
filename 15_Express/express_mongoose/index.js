@@ -1,7 +1,9 @@
 "use strict"
 
 const express = require("express");
+const cors = require("cors");
 const app = express();
+app.use(cors());
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -14,7 +16,7 @@ app.get("/", (req, res) => {
 
 app.use("/movies", moviesRouter);
 
-const server = app.listen(3000, () => {
+const server = app.listen(3001, () => {
     console.log(`Server started on port ${server.address().port}`);
 });
 
