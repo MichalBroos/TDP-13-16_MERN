@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Movie from './Movie.js'
+import MovieAdd from './MovieAdd.js'
 
 const Movies = () => {
     // uses /express_mongoose backend
@@ -21,6 +22,7 @@ const Movies = () => {
                                      actors={actors} earnings={earnings}/>))
                 : <p>No movies in the database</p>
             }
+            <MovieAdd/>
         </>
     );
 }
