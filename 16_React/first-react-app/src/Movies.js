@@ -6,12 +6,14 @@ import MovieAdd from './MovieAdd.js'
 const Movies = () => {
     // uses /express_mongoose backend
     const [movies, setMovies] = useState([]);
+    const [stateSwitch, setStateSwitch] = useState(false);
 
     useEffect(() => {
         axios.get("http://localhost:3001/movies/getall")
             .then(res => setMovies(res.data))
             .catch(err => console.log(err));
-    }, []);
+    }, [stateSwitch]); // [stateSwitch] necessary for showing new data after MovieAdd
+    // does this work as 1. call useEffect on load & 2. whenever stateSwitch changes?
 
     return (
         <>
@@ -22,7 +24,7 @@ const Movies = () => {
                                      actors={actors} earnings={earnings}/>))
                 : <p>No movies in the database</p>
             }
-            <MovieAdd/>
+            <MovieAdd moviesStateSwitch={stateSwitch} moviesStateSwitchSetter={setStateSwitch}/>
         </>
     );
 }
