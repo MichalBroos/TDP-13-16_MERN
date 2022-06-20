@@ -14,6 +14,9 @@ const Movies = () => {
             .catch(err => console.log(err));
     }, [stateSwitch]); // [stateSwitch] necessary for showing new data after MovieAdd
     // does this work as 1. call useEffect on load & 2. whenever stateSwitch changes?
+    // yes, see 1.-3. in https://www.w3schools.com/react/react_useeffect.asp
+    // + ? in https://reactjs.org/docs/hooks-effect.html#example-using-hooks
+    // + https://reactjs.org/docs/hooks-effect.html#tip-optimizing-performance-by-skipping-effects
 
     return (
         <>
