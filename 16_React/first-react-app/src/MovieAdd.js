@@ -38,11 +38,11 @@ const MovieAdd = ({moviesStateSwitch, moviesStateSwitchSetter}) => {
                 setTimeout(() => {
                     console.log("in timeout");
                     moviesStateSwitchSetter(!moviesStateSwitch);
-                }, 500);
+                }, 100);
             })
             .catch(err => console.log(err));
     }
-    return(
+    return (
         <>
             <h2>Add a new movie</h2>
             <form onSubmit={addMovie}>

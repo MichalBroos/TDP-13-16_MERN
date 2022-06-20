@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Movie from './Movie.js'
 import MovieAdd from './MovieAdd.js'
+import MovieDelete from './MovieDelete.js';
 
 const Movies = () => {
     // uses /express_mongoose backend
@@ -23,8 +24,11 @@ const Movies = () => {
             <h1>Movies FE + BE</h1>
             {movies.length
                 ? movies.map(({_id, title, releaseDate, actors, earnings}) => (
-                    <Movie key={_id} title={title} releaseDate={releaseDate}
-                                     actors={actors} earnings={earnings}/>))
+                    <div key={_id}>
+                        <Movie id={_id} title={title} releaseDate={releaseDate}
+                                        actors={actors} earnings={earnings}/>
+                        <MovieDelete id={_id} moviesStateSwitch={stateSwitch} moviesStateSwitchSetter={setStateSwitch}/>
+                    </div>))
                 : <p>No movies in the database</p>
             }
             <MovieAdd moviesStateSwitch={stateSwitch} moviesStateSwitchSetter={setStateSwitch}/>
