@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import axios from 'axios';
 
-const MovieAdd = ({edit, moviesStateSwitch, moviesStateSwitchSetter}) => {
+const MovieForm = ({submitHandler}) => {
     const [title, setTitle] = useState("");
     const [release, setRelease] = useState(getFormattedDate());
     const [actors, setActors] = useState("");
@@ -28,39 +27,10 @@ const MovieAdd = ({edit, moviesStateSwitch, moviesStateSwitchSetter}) => {
         }
         return newMovie;
     }
-
-    const addMovie = (e) => {
-        e.preventDefault();
-        axios.post("http://localhost:3001/movies/create", getNewMovie())
-            .then(res => {
-                console.log(res);
-                // getAll after post
-                setTimeout(() => {
-                    console.log("in timeout");
-                    moviesStateSwitchSetter(!moviesStateSwitch);
-                }, 100);
-            })
-            .catch(err => console.log(err));
-    }
-
-    const editMovie = (e) => {
-        e.preventDefault();
-        console.log("this is an edit");
-        axios.put(`http://localhost:3001/movies/replace/${edit[1]}`, getNewMovie())
-            .then(res => {
-                console.log("res from edit:", res.data);
-                setTimeout(() => {
-                    console.log("in timeout");
-                    moviesStateSwitchSetter(null);
-                }, 100);
-            })
-            .catch(err => console.log(err));
-    }
-
+    
     return (
         <>
-            <h2>{edit[0] ? "Update this movie" : "Add a new movie"}</h2>
-            <form onSubmit={edit[0] ? editMovie : addMovie}>
+            <form onSubmit={submitHandler}>
                 <label htmlFor="title">Title: </label>
                 <input
                     type="text" name="title" required={true}
@@ -91,4 +61,4 @@ const MovieAdd = ({edit, moviesStateSwitch, moviesStateSwitchSetter}) => {
     );
 }
 
-export default MovieAdd;
+export default MovieForm;
