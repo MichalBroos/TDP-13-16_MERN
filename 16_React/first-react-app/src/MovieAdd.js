@@ -68,6 +68,13 @@ const MovieAdd = ({edit, moviesStateSwitchSetter}) => {
             .catch(err => console.log(err));
     }
 
+    const handleCancel = () => {
+        if (edit[0]) {
+            moviesStateSwitchSetter(null);
+        }
+        navigate("/");
+    }
+
     return (
         <>
             <h2>{edit[0] ? "Update this movie" : "Add a new movie"}</h2>
@@ -97,6 +104,7 @@ const MovieAdd = ({edit, moviesStateSwitchSetter}) => {
                     />
                 <br/>
                 <button>Submit</button>
+                <button type="button" onClick={handleCancel}>Cancel</button>
             </form>
         </>
     );
