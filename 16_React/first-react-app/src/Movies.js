@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Movie from './Movie.js'
-import MovieAdd from './MovieAdd.js'
+// import MovieAdd from './MovieAdd.js'
 import MovieDelete from './MovieDelete.js';
 import MovieEdit from './MovieEdit.js';
 
@@ -43,7 +43,7 @@ const Movies = () => {
                         </div>))
                     : <p>No movies in the database</p>
                 }
-                <MovieAdd edit={[false, null]} moviesStateSwitch={stateSwitch} moviesStateSwitchSetter={setStateSwitch}/>
+                {/* <MovieAdd edit={[false, null]} moviesStateSwitch={stateSwitch} moviesStateSwitchSetter={setStateSwitch}/> */}
             </>
         );
     }

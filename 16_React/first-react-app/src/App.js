@@ -13,6 +13,7 @@ import './App.css';
 import Movies from './Movies';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import MoviesNav from './MoviesNav';
+import MovieAdd from './MovieAdd';
 // import Nav from './routing-exercise/Nav';
 // import Home from './routing-exercise/Home';
 // import Contact from './routing-exercise/Contact';
@@ -85,6 +86,7 @@ function App() {
       <MoviesNav/>
       <Routes>
         <Route exact path="/" element={<Movies/>}/>
+        <Route path="/add" element={<MovieAdd edit={[false, null]}/>}/>
       </Routes>
     </BrowserRouter>
 

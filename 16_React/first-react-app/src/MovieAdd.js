@@ -1,11 +1,17 @@
 import { useState } from 'react';
 import axios from 'axios';
+// replaced by Navigate in v6
+// https://stackoverflow.com/questions/62861269/attempted-import-error-usehistory-is-not-exported-from-react-router-dom
+// import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const MovieAdd = ({edit, moviesStateSwitch, moviesStateSwitchSetter}) => {
     const [title, setTitle] = useState("");
     const [release, setRelease] = useState(getFormattedDate());
     const [actors, setActors] = useState("");
     const [earnings, setEarnings] = useState(0);
+
+    let navigate = useNavigate();
 
     function getFormattedDate() {
         let date = new Date(Date.now()).toLocaleDateString("en-GB").split("/");
@@ -34,11 +40,14 @@ const MovieAdd = ({edit, moviesStateSwitch, moviesStateSwitchSetter}) => {
         axios.post("http://localhost:3001/movies/create", getNewMovie())
             .then(res => {
                 console.log(res);
-                // getAll after post
-                setTimeout(() => {
-                    console.log("in timeout");
-                    moviesStateSwitchSetter(!moviesStateSwitch);
-                }, 100);
+                // // getAll after post
+                // setTimeout(() => {
+                //     console.log("in timeout");
+                //     // moviesStateSwitchSetter(!moviesStateSwitch);
+                // }, 1000);
+                
+                // redirect to home after post
+                navigate("/");
             })
             .catch(err => console.log(err));
     }
