@@ -14,7 +14,7 @@ const Users = () => {
             <h1>Users page</h1>
             {a.map(num => (
                 <div key={num}>
-                    <Link key={num} to={`/Users/${getRandomInt()}`}>{`Random user ${num}`}</Link>
+                    <Link to={`/Users/${getRandomInt()}`}>{`Random user ${num}`}</Link>
                     <br/>
                 </div>))
             }
