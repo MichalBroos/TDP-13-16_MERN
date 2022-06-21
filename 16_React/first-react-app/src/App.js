@@ -87,6 +87,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Movies/>}/>
         <Route path="/add" element={<MovieAdd edit={[false, null]}/>}/>
+        <Route path="/edit" element={<Movies/>}/>
       </Routes>
     </BrowserRouter>
 

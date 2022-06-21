@@ -4,12 +4,15 @@ import Movie from './Movie.js'
 // import MovieAdd from './MovieAdd.js'
 import MovieDelete from './MovieDelete.js';
 import MovieEdit from './MovieEdit.js';
+import { useNavigate } from 'react-router-dom';
 
 const Movies = () => {
     // uses /express_mongoose backend
     const [movies, setMovies] = useState([]);
     const [stateSwitch, setStateSwitch] = useState(false);
     const [editMovie, setEditMovie] = useState(null);
+
+    let navigate = useNavigate();
 
     useEffect(() => {
         axios.get("http://localhost:3001/movies/getall")
@@ -39,6 +42,7 @@ const Movies = () => {
                                             actors={actors} earnings={earnings}/>
                             <button onClick={() => {
                                 setEditMovie({_id, title, releaseDate, actors, earnings});
+                                navigate("/edit");
                             }}>Edit</button>
                             <MovieDelete id={_id} moviesStateSwitch={stateSwitch} moviesStateSwitchSetter={setStateSwitch}/>
                         </div>))
