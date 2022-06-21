@@ -10,14 +10,15 @@ import './App.css';
 // import Subcontent from './Subcontent';
 // import EmployeeInfo from './EmployeeInfo';
 // import FilmRequest from './FilmRequest';
-// import Movies from './Movies';
+import Movies from './Movies';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
-import Nav from './routing-exercise/Nav';
-import Home from './routing-exercise/Home';
-import Contact from './routing-exercise/Contact';
-import Users from './routing-exercise/Users';
-import NotFound from './routing-exercise/NotFound';
-import UserId from './routing-exercise/UserId';
+import MoviesNav from './MoviesNav';
+// import Nav from './routing-exercise/Nav';
+// import Home from './routing-exercise/Home';
+// import Contact from './routing-exercise/Contact';
+// import Users from './routing-exercise/Users';
+// import NotFound from './routing-exercise/NotFound';
+// import UserId from './routing-exercise/UserId';
 
 function App() {
   return (
@@ -79,20 +80,25 @@ function App() {
     // <EmployeeInfo/>
     // <FilmRequest/>
 
-    // D5 + D6
-    // <Movies/>
-
-    // D7
+    // D5 + D6 + D7
     <BrowserRouter>
-      <Nav/>
+      <MoviesNav/>
       <Routes>
-        <Route exact path="/" element={<Home/>}/>
-        <Route path="/Contact" element={<Contact/>}/>
-        <Route path="/Users" element={<Users/>}/>
-        <Route path="/Users/:id" element={<UserId/>}/>
-        <Route path="*" element={<NotFound/>}/>
+        <Route exact path="/" element={<Movies/>}/>
       </Routes>
     </BrowserRouter>
+
+    // D7
+    // <BrowserRouter>
+    //   <Nav/>
+    //   <Routes>
+    //     <Route exact path="/" element={<Home/>}/>
+    //     <Route path="/Contact" element={<Contact/>}/>
+    //     <Route path="/Users" element={<Users/>}/>
+    //     <Route path="/Users/:id" element={<UserId/>}/>
+    //     <Route path="*" element={<NotFound/>}/>
+    //   </Routes>
+    // </BrowserRouter>
   );
 }
 
