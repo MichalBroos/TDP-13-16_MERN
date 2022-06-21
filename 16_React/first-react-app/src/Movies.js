@@ -24,7 +24,8 @@ const Movies = () => {
     if (editMovie) {
         return (
             <>
-                <MovieEdit movie={editMovie} moviesEditSwitch={editMovie} moviesEditSwitchSetter={setEditMovie}/>
+                {/* <MovieEdit movie={editMovie} moviesEditSwitch={editMovie} moviesEditSwitchSetter={setEditMovie}/> */}
+                <MovieEdit movie={editMovie} moviesEditSwitchSetter={setEditMovie}/>
             </>
         );
     } else {

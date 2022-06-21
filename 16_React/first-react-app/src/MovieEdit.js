@@ -5,7 +5,8 @@
 import MovieAdd from "./MovieAdd";
 import Movie from "./Movie";
 
-const MovieEdit = ({movie: {_id, title, releaseDate, actors, earnings}, moviesEditSwitch, moviesEditSwitchSetter}) => {
+// const MovieEdit = ({movie: {_id, title, releaseDate, actors, earnings}, moviesEditSwitch, moviesEditSwitchSetter}) => {
+const MovieEdit = ({movie: {_id, title, releaseDate, actors, earnings}, moviesEditSwitchSetter}) => {
     // const [movie, setMovie] = useState();
 
     // const editMovie = () => {
@@ -27,7 +28,7 @@ const MovieEdit = ({movie: {_id, title, releaseDate, actors, earnings}, moviesEd
             <h1>Editing</h1>
             <Movie id={_id} title={title} releaseDate={releaseDate}
                             actors={actors} earnings={earnings}/>
-            <MovieAdd edit={[true, _id]} moviesStateSwitch={moviesEditSwitch} moviesStateSwitchSetter={moviesEditSwitchSetter}/>
+            <MovieAdd edit={[true, _id]} moviesStateSwitchSetter={moviesEditSwitchSetter}/>
         </>
     );
 }

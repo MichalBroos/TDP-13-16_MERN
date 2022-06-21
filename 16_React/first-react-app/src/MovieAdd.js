@@ -5,7 +5,8 @@ import axios from 'axios';
 // import { useHistory } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
-const MovieAdd = ({edit, moviesStateSwitch, moviesStateSwitchSetter}) => {
+// const MovieAdd = ({edit, moviesStateSwitch, moviesStateSwitchSetter}) => {
+const MovieAdd = ({edit, moviesStateSwitchSetter}) => {
     const [title, setTitle] = useState("");
     const [release, setRelease] = useState(getFormattedDate());
     const [actors, setActors] = useState("");
