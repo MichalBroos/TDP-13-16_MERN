@@ -15,6 +15,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import MoviesNav from './MoviesNav';
 import MovieAdd from './MovieAdd';
 import MovieGetById from './MovieGetById';
+import MovieNotFound from './MovieNotFound';
 // import Nav from './routing-exercise/Nav';
 // import Home from './routing-exercise/Home';
 // import Contact from './routing-exercise/Contact';
@@ -90,6 +91,7 @@ function App() {
         <Route path="/add" element={<MovieAdd edit={[false, null]}/>}/>
         <Route path="/edit" element={<Movies/>}/>
         <Route path="/getbyid" element={<MovieGetById/>}/>
+        <Route path="*" element={<MovieNotFound/>}/>
       </Routes>
     </BrowserRouter>
 
