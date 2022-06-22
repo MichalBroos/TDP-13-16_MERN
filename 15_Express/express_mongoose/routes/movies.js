@@ -2,6 +2,8 @@
 
 const router = require("express").Router();
 const Movie = require("../db.js");
+const mongoose = require("mongoose");
+const bson = require("bson");
 
 // http://localhost:3000/movies/getall
 router.get("/getAll", (req, res, next) => {
@@ -12,7 +14,21 @@ router.get("/getAll", (req, res, next) => {
 
 // http://localhost:3000/movies/getbyid/mongo_id
 router.get("/getById/:id", (req, res, next) => {
-    const id = req.params.id;
+    let id;
+    try {
+        id = mongoose.Types.ObjectId(req.params.id)
+    } catch (e) {
+        if (e instanceof mongoose.Error.CastError || e instanceof bson.BSONTypeError) {
+            // catch invalid id error
+            console.log("invalid id format:", req.params.id);
+            id = null;
+        } else {
+            // bubble up other errors
+            throw e;
+        }
+    }
+    // const id = req.params.id;
+    // if using id as above, then error when findById(id) doesn't find anything
     Movie.findById(id)
         .then((movie) => res.send(movie))
         .catch((err) => next(err));
